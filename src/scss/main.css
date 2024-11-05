@@ -188,7 +188,7 @@ ul {
   /* burger */
   /* end burger */
 }
-@media (max-width >= 1658px) {
+@media (max-width: 1658px) {
   .header-content {
     flex-wrap: wrap;
   }
@@ -295,6 +295,23 @@ ul {
     order: 2;
   }
 }
+@keyframes shaking {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(2deg);
+  }
+  50% {
+    transform: rotate(0eg);
+  }
+  75% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
 .header-content__phone {
   display: block;
   padding: 20px 20px 20px 20px;
@@ -302,6 +319,7 @@ ul {
   transition: color ease-in-out 0.5s;
 }
 .header-content__phone:hover {
+  animation: shaking 0.25s infinite;
   color: var(--brown-81);
 }
 .header-content__button {
