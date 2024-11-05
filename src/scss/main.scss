@@ -44,6 +44,7 @@
 
   &__link {
     @include font-face("Muller", "../resources/fonts/MullerRegular", 400, normal);
+
     line-height: 150%;
     font-size: 14px;
     color: var(--light-color);
