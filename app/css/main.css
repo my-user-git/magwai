@@ -420,6 +420,7 @@ ul {
   transform: skewX(-18deg);
   -webkit-transition: color ease-in-out 0.5s, background-color ease-in-out 0.5s;
   transition: color ease-in-out 0.5s, background-color ease-in-out 0.5s;
+  cursor: pointer;
 }
 .header-content__button:hover, .header-content__button:focus {
   color: var(--brown-81);
@@ -490,6 +491,7 @@ ul {
   transform: skewX(-18deg);
   -webkit-transition: color ease-in-out 0.5s, background-color ease-in-out 0.5s;
   transition: color ease-in-out 0.5s, background-color ease-in-out 0.5s;
+  cursor: pointer;
 }
 .hero-content__button:hover, .hero-content__button:focus {
   color: var(--brown-81);
@@ -670,6 +672,7 @@ ul {
   transform: skewX(-18deg);
   -webkit-transition: color ease-in-out 0.5s, background-color ease-in-out 0.5s;
   transition: color ease-in-out 0.5s, background-color ease-in-out 0.5s;
+  cursor: pointer;
   -ms-flex-item-align: center;
   -ms-grid-row-align: center;
   align-self: center;
