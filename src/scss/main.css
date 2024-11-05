@@ -153,24 +153,24 @@ ul {
 /* header */
 .header-content {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 28px;
 }
 .header-content__logo {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 .header-content__nav {
   margin-right: auto;
 }
 .header-content__list {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   -moz-column-gap: 42px;
        column-gap: 42px;
+  align-items: center;
+  justify-content: space-between;
   margin: 0;
 }
 .header-content__link {
