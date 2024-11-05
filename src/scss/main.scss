@@ -16,7 +16,7 @@
   justify-content: space-between;
   margin-bottom: 28px;
 
-  @media (max-width: 1658px) {
+  @media (max-width >= 1658px) {
     flex-wrap: wrap;
   }
 
@@ -134,27 +134,27 @@
 
   }
 
-  @keyframes shaking {
-    0% {
-      transform: rotate(0deg);
-    }
+  // @keyframes shaking {
+  //   0% {
+  //     transform: rotate(0deg);
+  //   }
 
-    25% {
-      transform: rotate(2deg);
-    }
+  //   25% {
+  //     transform: rotate(2deg);
+  //   }
 
-    50% {
-      transform: rotate(0eg);
-    }
+  //   50% {
+  //     transform: rotate(0eg);
+  //   }
 
-    75% {
-      transform: rotate(-2deg);
-    }
+  //   75% {
+  //     transform: rotate(-2deg);
+  //   }
 
-    100% {
-      transform: rotate(0deg);
-    }
-  }
+  //   100% {
+  //     transform: rotate(0deg);
+  //   }
+  // }
 
   &__phone {
     display: block;
@@ -163,7 +163,7 @@
     transition: color ease-in-out .5s;
 
     &:hover {
-      animation: shaking 0.25s infinite;
+      // animation: shaking 0.25s infinite;
       color: var(--brown-81);
     }
   }
