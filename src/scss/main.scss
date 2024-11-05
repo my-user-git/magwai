@@ -1,0 +1,247 @@
+// базовые подключения
+@import "vars";
+@import "mixins";
+@import "fonts";
+@import "settings";
+
+// подключения компонентов страницы
+@import "./components/header";
+
+// тестовые стили, удалите их
+// .page__body {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   height: var(--vh);
+// }
+
+
+/* header */
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+
+  &__logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__nav {
+    margin-right: auto;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 42px;
+    margin: 0;
+  }
+
+  &__link {
+    @include font-face("Muller", "../resources/fonts/MullerRegular", 400, normal);
+    line-height: 150%;
+    font-size: 14px;
+    color: var(--light-color);
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__phone {
+    display: block;
+  }
+
+  &__button {
+    position: relative;
+    display: block;
+    padding: 21px 78px 21px 78px;
+    line-height: 150%;
+    font-size: 12px;
+    color: var(--light-color);
+    background-color: var(--brown-81);
+    border: none;
+    transform: skewX(-30deg);
+
+    &::after {
+      position: absolute;
+      content: '';
+      top: 0;
+      right: -20px;
+      bottom: 0;
+      width: 10px;
+      background-color: var(--light-color);
+    }
+
+    & span {
+      display: block;
+      transform: skewX(30deg);
+    }
+  }
+}
+
+/* hero */
+
+.hero {
+  margin-bottom: 134px;
+  border-radius: 60px 60px 0 0;
+  background: url('../img/hero-bg.png') top center no-repeat transparent;
+
+  &-content {
+    padding-top: 598px;
+    padding-bottom: 96px;
+
+    &__title {
+      margin: 0 0 40px 0;
+      line-height: auto;
+      font-size: 42px;
+      color: var(--light-color);
+    }
+
+    &__desc {
+      margin: 0 0 40px 0;
+      line-height: 150%;
+      font-size: 16px;
+      color: var(--light-color);
+    }
+
+    &__button {
+      position: relative;
+      display: inline-flex;
+      padding: 21px 78px 21px 78px;
+      line-height: 150%;
+      font-size: 12px;
+      color: var(--light-color);
+      background-color: var(--brown-81);
+      border: none;
+      transform: skewX(-30deg);
+
+      &::after {
+        position: absolute;
+        content: '';
+        top: 0;
+        right: -20px;
+        bottom: 0;
+        width: 10px;
+        background-color: var(--light-color);
+      }
+
+      & span {
+        display: block;
+        transform: skewX(30deg);
+      }
+    }
+  }
+}
+
+/* posts */
+
+.posts {
+  margin-bottom: 200px;
+}
+
+.posts-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__title {
+    margin: 0 0 53px 0;
+    line-height: 100%;
+    font-size: 42px;
+    color: var(--light-color);
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 30px;
+    row-gap: 30px;
+    margin: 0 0 60px 0;
+    padding: 0;
+  }
+
+  &__item {
+    height: auto;
+    background-color: var(--light-color);
+  }
+
+  &__wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto min-content minmax(auto, 1fr) min-content min-content;
+    row-gap: 20px;
+    // display: flex;
+    // flex-direction: column;
+    // row-gap: 20px;
+    padding: 25px 24px 30px 24px;
+  }
+
+  &__h3 {
+    line-height: 26px;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    color: var(--dark-17);
+  }
+
+  &__h4 {
+    line-height: 26px;
+    font-size: 16px;
+    color: var(--dark-17);
+  }
+
+  &__body {
+    line-height: 24px;
+    font-size: 14px;
+    color: var(--dark-66);
+  }
+
+  &__meta {
+    line-height: 24px;
+    font-size: 12px;
+    color: var(--dark-66);
+  }
+
+  &__more {
+    padding: 16px 80px 16px 80px;
+    line-height: 100%;
+    font-size: 14px;
+    color: var(--light-color);
+    background-color: var(--dark-17);
+  }
+
+  &__button {
+    position: relative;
+    display: inline-flex;
+    align-self: center;
+    padding: 21px 78px 21px 78px;
+    line-height: 150%;
+    font-size: 12px;
+    color: var(--light-color);
+    background-color: var(--brown-81);
+    border: none;
+    transform: skewX(-30deg);
+
+    &::after {
+      position: absolute;
+      content: '';
+      top: 0;
+      right: -20px;
+      bottom: 0;
+      width: 10px;
+      background-color: var(--light-color);
+    }
+
+    & span {
+      display: block;
+      transform: skewX(30deg);
+    }
+  }
+}

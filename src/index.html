@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+@include('partials/head.html')
+
+<body class="page__body">
+  <div class="site-container">
+    @include('partials/header.html')
+    <main class="main">
+      <section class="hero">
+        <div class="hero-content container">
+          <h1 class="hero-content__title">
+            Полет Илона Маска<br> и DOGIE COIN
+          </h1>
+          <p class="hero-content__desc">
+            В прошлый четверг все офигели от полета DOGIE COIN на марс.
+          </p>
+          <a class="hero-content__button" data-fancybox data-src="#hidden-content" href="javascript:;"><span>Оставить
+              заявку</span></a>
+        </div>
+      </section>
+      <section class="posts">
+        <div class="posts-content container">
+          <h2 class="posts-content__title">
+            Карточки
+          </h2>
+          <ul class="posts-content__list">
+          </ul>
+          <button class="posts-content__button"><span>Загрузить ещё</span></button>
+        </div>
+      </section>
+      <picture>
+        <source srcset="img/cover.webp" type="image/webp">
+        <img loading="lazy" src="img/cover.jpg" class="image" width="300" height="300" alt="Обложка канала MaxGraph">
+      </picture>
+    </main>
+    @include('partials/footer.html')
+    <!-- @include('html/h1.html') пример include -->
+  </div>
+</body>
+
+</html>
