@@ -1,1 +1,4 @@
-@include font-face("Muller", "../fonts/MullerRegular", 400, normal);
+@include font-face-woff("Montserrat-Regular", "../fonts/Montserrat-Regular", 400, normal);
+@include font-face-woff("Montserrat-Bold", "../fonts/Montserrat-Bold", 700, normal);
+@include font-face("Mulish-Bold", "../fonts/Mulish-Bold", 700, normal);
+@include font-face("Mulish-SemiBold", "../fonts/Mulish-SemiBold", 700, normal);

@@ -7,14 +7,6 @@
 // подключения компонентов страницы
 @import "./components/header";
 
-// тестовые стили, удалите их
-// .page__body {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   height: var(--vh);
-// }
-
 
 /* header */
 
@@ -24,67 +16,160 @@
   justify-content: space-between;
   margin-bottom: 28px;
 
+  @media (max-width: 1658px) {
+    flex-wrap: wrap;
+  }
+
   &__logo {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-right: 76px;
+    color: var(--light-color);
+    transition: color ease-in-out .5s;
+
+    &:hover {
+      color: var(--brown-81);
+    }
+
+    @media (max-width: 1658px) {
+      order: 1;
+    }
+
   }
 
+  /* burger */
+
+  &__burger {
+    position: relative;
+    display: none;
+    z-index: 1;
+
+    @media (max-width: 992px) {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  /* end burger */
+
   &__nav {
+    position: relative;
     margin-right: auto;
+
+    @media (max-width: 1658px) {
+      margin-right: 0;
+      order: 3;
+    }
+
+    @media (max-width: 992px) {
+      display: none;
+
+      &.header-content__active {
+        position: absolute;
+        left: 0;
+        display: flex;
+        z-index: 10;
+      }
+    }
+  }
+
+  &__active {
+
+    @media (max-width: 992px) {
+      & .header-content__list {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+      }
+    }
   }
 
   &__list {
     display: flex;
+    flex-wrap: wrap;
     column-gap: 42px;
     align-items: center;
     justify-content: space-between;
     margin: 0;
+
+    @media (max-width: 992px) {
+      width: 100vw;
+      padding-left: var(--container-offset);
+      background-color: var(--dark-13);
+    }
   }
 
   &__link {
-    @include font-face("Muller", "../resources/fonts/MullerRegular", 400, normal);
-
+    font-family: var(--font-montserrat-bold);
+    font-size: var(--10-14);
     line-height: 150%;
-    font-size: 14px;
+    font-weight: 700;
     color: var(--light-color);
+    text-transform: uppercase;
+    transition: text-shadow ease-in-out .5s;
+
+    &:hover,
+    &:focus {
+      text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px var(--brown-81), 0 0 30px var(--brown-81), 0 0 40px var(--brown-81), 0 0 55px var(--brown-81), 0 0 75px var(--brown-81);
+    }
+
+    @media (max-width: 992px) {
+      font-size: var(--20-36);
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: var(--grey-80);
+      color: transparent;
+    }
   }
 
   &__actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media (max-width: 1658px) {
+      order: 2;
+    }
+
+  }
+
+  @keyframes shaking {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    25% {
+      transform: rotate(2deg);
+    }
+
+    50% {
+      transform: rotate(0eg);
+    }
+
+    75% {
+      transform: rotate(-2deg);
+    }
+
+    100% {
+      transform: rotate(0deg);
+    }
   }
 
   &__phone {
     display: block;
+    padding: 20px 20px 20px 20px;
+    color: var(--light-color);
+    transition: color ease-in-out .5s;
+
+    &:hover {
+      animation: shaking 0.25s infinite;
+      color: var(--brown-81);
+    }
   }
 
   &__button {
-    position: relative;
-    display: block;
-    padding: 21px 78px 21px 78px;
-    line-height: 150%;
-    font-size: 12px;
-    color: var(--light-color);
-    background-color: var(--brown-81);
-    border: none;
-    transform: skewX(-30deg);
-
-    &::after {
-      position: absolute;
-      content: '';
-      top: 0;
-      right: -20px;
-      bottom: 0;
-      width: 10px;
-      background-color: var(--light-color);
-    }
-
-    & span {
-      display: block;
-      transform: skewX(30deg);
-    }
+    @include button;
   }
 }
 
@@ -101,9 +186,12 @@
 
     &__title {
       margin: 0 0 40px 0;
-      line-height: auto;
+      font-family: var(--font-montserrat-bold);
       font-size: 42px;
+      line-height: 100%;
+      font-weight: 700;
       color: var(--light-color);
+      text-transform: uppercase;
     }
 
     &__desc {
@@ -114,30 +202,7 @@
     }
 
     &__button {
-      position: relative;
-      display: inline-flex;
-      padding: 21px 78px 21px 78px;
-      line-height: 150%;
-      font-size: 12px;
-      color: var(--light-color);
-      background-color: var(--brown-81);
-      border: none;
-      transform: skewX(-30deg);
-
-      &::after {
-        position: absolute;
-        content: '';
-        top: 0;
-        right: -20px;
-        bottom: 0;
-        width: 10px;
-        background-color: var(--light-color);
-      }
-
-      & span {
-        display: block;
-        transform: skewX(30deg);
-      }
+      @include button;
     }
   }
 }
@@ -155,14 +220,17 @@
 
   &__title {
     margin: 0 0 53px 0;
-    line-height: 100%;
+    font-family: var(--font-montserrat-bold);
     font-size: 42px;
+    line-height: 100%;
+    font-weight: 700;
     color: var(--light-color);
+    text-transform: uppercase;
   }
 
   &__list {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     column-gap: 30px;
     row-gap: 30px;
     margin: 0 0 60px 0;
@@ -170,79 +238,106 @@
   }
 
   &__item {
-    height: auto;
+    width: calc((100% - 4*30px)/5);
     background-color: var(--light-color);
+
+    @media (max-width: 1400px) {
+      width: calc((100% - 3*30px)/4);
+    }
+
+    @media (max-width: 1024px) {
+      width: calc((100% - 2*30px)/3);
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
 
   &__wrap {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto min-content minmax(auto, 1fr) min-content min-content;
-    row-gap: 20px;
-    // display: flex;
-    // flex-direction: column;
-    // row-gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     padding: 25px 24px 30px 24px;
+    height: 100%;
   }
 
   &__h3 {
-    line-height: 26px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    font-family: var(--font-mulish-bold);
+    line-height: 186%;
     font-size: 14px;
+    font-weight: 700;
     letter-spacing: 1.5px;
     color: var(--dark-17);
+    text-transform: uppercase;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__h4 {
-    line-height: 26px;
-    font-size: 16px;
+    font-family: var(--font-montserrat-regular);
+    font-size: var(--12-16);
+    line-height: 162%;
+    font-weight: 400;
     color: var(--dark-17);
   }
 
   &__body {
-    line-height: 24px;
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+    margin-bottom: auto;
+    font-family: var(--font-montserrat-regular);
     font-size: 14px;
+    line-height: 171%;
+    font-weight: 400;
     color: var(--dark-66);
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__meta {
-    line-height: 24px;
+    font-family: var(--font-montserrat-regular);
     font-size: 12px;
+    line-height: 200%;
+    font-weight: 400;
     color: var(--dark-66);
+
+    & strong {
+      font-weight: 700;
+    }
   }
 
   &__more {
-    padding: 16px 80px 16px 80px;
-    line-height: 100%;
+    width: 100%;
+    text-align: center;
+    padding: 16px 0 16px 0;
+    font-family: var(--font-mulish-semibold);
     font-size: 14px;
+    line-height: 100%;
+    font-weight: 600;
     color: var(--light-color);
     background-color: var(--dark-17);
+    transition: background-color ease-in-out .5s;
+
+    &:hover {
+      background-color: var(--brown-81);
+    }
   }
 
   &__button {
-    position: relative;
-    display: inline-flex;
+    @include button;
     align-self: center;
-    padding: 21px 78px 21px 78px;
-    line-height: 150%;
-    font-size: 12px;
-    color: var(--light-color);
-    background-color: var(--brown-81);
-    border: none;
-    transform: skewX(-30deg);
+    cursor: pointer;
 
-    &::after {
-      position: absolute;
-      content: '';
-      top: 0;
-      right: -20px;
-      bottom: 0;
-      width: 10px;
-      background-color: var(--light-color);
-    }
-
-    & span {
-      display: block;
-      transform: skewX(30deg);
+    &:disabled {
+      cursor: not-allowed;
+      opacity: .5;
     }
   }
 }

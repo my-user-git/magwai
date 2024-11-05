@@ -5,61 +5,21 @@ console.log('api');
 import { dataLocal } from './postsdata.js';
 
 let globalData = {};
-let api = false;
-let morePosts = 1;
-let postsApiArr = [];
+let api = false,
+  morePosts = 1,
+  postsApiArr = [],
+  clickFlag = 0;
 
-let now = new Date();
-let month = now.toLocaleString('en-us', { month: 'short' });
-let day = now.getDate();
-let year = now.getFullYear();
+let now = new Date(),
+  month = now.toLocaleString('en-us', { month: 'short' }),
+  day = now.getDate(),
+  year = now.getFullYear();
+
+const moreDisable = document.querySelector('.posts-content__button');
 
 
 (function () {
   const postsList = document.querySelector('.posts-content__list');
-  console.log(dataLocal.length);
-
-  // function initPost(data) {
-  //   data.forEach(function (el) {
-  //     if (!el.img || !el.date || !el.subtitle || !el.author) {
-  //       Object.assign(el, {
-  //         img: 'img/default.png',
-  //         subtitle: 'API',
-  //         author: 'No Eugenia',
-  //         date: {
-  //           month: month,
-  //           day: day,
-  //           year: year,
-  //         },
-  //       });
-  //     }
-  //     return addItem(el);
-  //   });
-  // }
-
-  // function initPost(data, count, api) {
-  //   let i = 0;
-  //   do {
-  //     console.log(data[i]);
-  //     if (!data[i].img && !data[i].date && !data[i].subtitle && !data[i].author) {
-  //       Object.assign(data[i], {
-  //         img: 'img/default.png',
-  //         subtitle: 'API',
-  //         author: 'No Eugenia',
-  //         date: {
-  //           month: month,
-  //           day: day,
-  //           year: year,
-  //         },
-  //       });
-  //       addItem(data[i]);
-  //     } else {
-  //       addItem(data[i]);
-  //     }
-  //     i++;
-  //   } while (i <= count);
-  // }
-
 
   function initPost(data, count, api) {
     let i = 0;
@@ -103,6 +63,7 @@ let year = now.getFullYear();
   function addItem(element) {
     let itemLi = document.createElement('li');
     let itemImg = document.createElement('img');
+    let itemCard = document.createElement('div');
     let itemWrap = document.createElement('div');
     let itemH3 = document.createElement('h3');
     let itemH4 = document.createElement('h4');
@@ -113,6 +74,7 @@ let year = now.getFullYear();
     let itemMore = document.createElement('a');
 
     itemLi.className = 'posts-content__item';
+    itemCard.className = 'posts-content__card'
     itemImg.className = 'posts-content__img';
     itemWrap.className = 'posts-content__wrap';
     itemH3.className = 'posts-content__h3';
@@ -132,12 +94,13 @@ let year = now.getFullYear();
     itemMore.setAttribute('href', element.uri);
     itemMore.target = '_blank';
     itemMore.innerHTML = element.uri;
-    itemMore.textContent = 'Continue reading';
+    itemMore.textContent = 'Continue\xA0reading';
 
 
     appendChildren(itemMetaData, [itemAuthor, itemDate]);
     appendChildren(itemWrap, [itemH3, itemH4, itemBody, itemMetaData, itemMore]);
-    appendChildren(itemLi, [itemImg, itemWrap]);
+    appendChildren(itemCard, [itemImg, itemWrap]);
+    appendChildren(itemLi, [itemCard]);
 
     postsList.appendChild(itemLi);
   }
@@ -153,8 +116,12 @@ let year = now.getFullYear();
       const buttonMore = document.querySelector('.posts-content__button');
 
       buttonMore.addEventListener('click', () => {
+        clickFlag++;
         getPostsApi(morePosts);
         morePosts = morePosts + 5;
+        if (clickFlag === 6) {
+          moreDisable.disabled = true;
+        }
       })
     })
   }
