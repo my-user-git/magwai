@@ -14,6 +14,7 @@
 
 .page__body {
   margin: 0;
+  font-size: 16px;
   background-color: var(--dark-13);
 }
 
@@ -41,9 +42,6 @@ ul {
   list-style: none;
 }
 
-.site-container {
-  overflow: hidden; // если используете на сайте position: sticky - уберите эту настройку
-}
 
 .is-hidden {
   display: none !important;
@@ -92,7 +90,15 @@ ul {
 .container {
   margin: 0 auto;
   padding: 0 var(--container-offset);
-  max-width: var(--container-width);
+  max-width: calc(var(--content-width) + (var(--container-offset) * 2));
+
+  @media (max-width: 768px) {
+    padding: 0 var(--container-offset-ipad);
+  }
+
+  @media (max-width: 576px) {
+    padding: 0 16px;
+  }
 }
 
 .centered {

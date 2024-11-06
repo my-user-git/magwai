@@ -2,14 +2,14 @@
 // colors
 :root {
   // base
-  // --font-family: "Muller",sans-serif;
   --font-montserrat-regular: "Montserrat-Regular", sans-serif;
   --font-montserrat-bold: "Montserrat-Bold", sans-serif;
   --font-mulish-bold: "Mulish-Bold", sans-serif;
   --font-mulish-semibold: "Mulish-SemiBold", sans-serif;
   --content-width: 1720px;
   --container-offset: 100px;
-  --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+  --container-offset-ipad: 40px;
+  // --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
 
   // colors
   --light-color: #fff;
@@ -21,8 +21,7 @@
 
   // font-size
 
-  --10-14: clamp(0.625rem, 0.4565rem + 0.3524vw, 0.875rem); // 765 - 1900
+  --10-14: clamp(0.625rem, 0.5787rem + 0.2469vw, 0.875rem); // 300 - 1900
   --20-36: clamp(1.25rem, 0.5341rem + 3.5794vw, 2.25rem);
   --12-16: clamp(0.75rem, 0.3214rem + 0.5714vw, 1rem); // 1200 - 1900
-  --10-14: clamp(0.625rem, 0.1964rem + 0.5714vw, 0.875rem); // 1200 - 1900
 }

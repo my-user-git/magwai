@@ -3,7 +3,7 @@
 @mixin button {
   position: relative;
   display: inline-flex;
-  padding: 21px 78px 21px 78px;
+  padding: 21px 69px 21px 66px;
   font-family: var(--font-montserrat-bold);
   font-size: 12px;
   line-height: 150%;
@@ -12,10 +12,9 @@
   text-transform: uppercase;
   background-color: var(--brown-81);
   border: none;
-  transform: skewX(-18deg);
+  transform: skewX(-17deg);
   transition: color ease-in-out .5s, background-color ease-in-out .5s;
   cursor: pointer;
-
 
   &:hover, &:focus {
     color: var(--brown-81);
@@ -31,15 +30,15 @@
     position: absolute;
     content: '';
     top: 0;
-    right: -20px;
+    right: -12px;
     bottom: 0;
-    width: 10px;
+    width: 5px;
     background-color: var(--light-color);
   }
 
   & span {
     display: block;
-    transform: skewX(18deg);
+    transform: skewX(17deg);
   }
 
 }
