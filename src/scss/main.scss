@@ -120,11 +120,15 @@
     position: absolute;
     bottom: 21px;
     left: 18px;
-    display: flex;
+    display: none;
     flex-direction: column;
     row-gap: 6px;
     width: 100%;
     z-index: 11;
+
+    @media (max-width: 576px) {
+      display: flex;
+    }
 
     &-wrap {
       width: 91%;
