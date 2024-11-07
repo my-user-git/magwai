@@ -328,9 +328,7 @@ ul {
   position: absolute;
   bottom: 21px;
   left: 18px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
@@ -338,6 +336,13 @@ ul {
   row-gap: 6px;
   width: 100%;
   z-index: 11;
+}
+@media (max-width: 576px) {
+  .header-content__adaptive {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
 }
 .header-content__adaptive-wrap {
   width: 91%;
