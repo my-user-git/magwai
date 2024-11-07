@@ -114,7 +114,45 @@
         }
       }
     }
+  }
 
+  &__adaptive {
+    position: absolute;
+    bottom: 21px;
+    left: 18px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 6px;
+    width: 100%;
+    z-index: 11;
+
+    &-wrap {
+      width: 91%;
+      text-align: center;
+      padding: 14px 0 14px 0;
+      border: 1px solid var(--light-color);
+      transform: skewX(-17deg);
+      opacity: .4;
+    }
+
+    &-phone {
+      width: 32px;
+      height: 32px;
+      transform: skewX(17deg);
+    }
+
+    &-button {
+      @include button;
+      display: block;
+      width: 91%;
+      text-align: center;
+      padding-right: 0;
+      padding-left: 0;
+
+      &:after {
+        display: none;
+      }
+    }
   }
 
   &__list {
